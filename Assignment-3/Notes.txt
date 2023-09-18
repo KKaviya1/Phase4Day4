@@ -1,0 +1,43 @@
+D:\Training\phase3\day4\Assignment_3>docker build -t movie-img -f D:\Training\phase3\day4\Assignment_3\Assignment_3\Dockerfile .
+[+] Building 13.9s (18/18) FINISHED                                              docker:default
+ => [internal] load build definition from Dockerfile                                       0.0s
+ => => transferring dockerfile: 799B                                                       0.0s
+ => [internal] load .dockerignore                                                          0.0s
+ => => transferring context: 382B                                                          0.0s
+ => [internal] load metadata for mcr.microsoft.com/dotnet/sdk:6.0                          0.2s
+ => [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:6.0                       0.0s
+ => [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:6.0@sha256:9ffba4bc057861c60464f4130213  0.0s
+ => [base 1/2] FROM mcr.microsoft.com/dotnet/aspnet:6.0                                    0.0s
+ => [internal] load build context                                                          0.1s
+ => => transferring context: 8.30kB                                                        0.0s
+ => CACHED [build 2/7] WORKDIR /src                                                        0.0s
+ => [build 3/7] COPY [Assignment_3/Assignment_3.csproj, Assignment_3/]                     0.1s
+ => [build 4/7] RUN dotnet restore "Assignment_3/Assignment_3.csproj"                      6.0s
+ => [build 5/7] COPY . .                                                                   0.1s
+ => [build 6/7] WORKDIR /src/Assignment_3                                                  0.1s
+ => [build 7/7] RUN dotnet build "Assignment_3.csproj" -c Release -o /app/build            4.5s
+ => [publish 1/1] RUN dotnet publish "Assignment_3.csproj" -c Release -o /app/publish /p:  2.3s
+ => CACHED [base 2/2] WORKDIR /app                                                         0.0s
+ => CACHED [final 1/2] WORKDIR /app                                                        0.0s
+ => [final 2/2] COPY --from=publish /app/publish .                                         0.1s
+ => exporting to image                                                                     0.1s
+ => => exporting layers                                                                    0.1s
+ => => writing image sha256:a8aca02873fa1be17de42ecdc7661d89139a77f34120d31978c339630f73d  0.0s
+ => => naming to docker.io/library/movie-img                                               0.0s
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+
+
+D:\Training\phase3\day4\Assignment_3>docker run -it --rm -p 8081:80 --name moviescontainer movie-img
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://[::]:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app/
+
+
+http://localhost:8081/api/Movies

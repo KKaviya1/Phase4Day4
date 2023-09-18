@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1Q1O5Nb6JFpFGKJtM2WXNxPKcWluoJAj5dGrE1KUmkmkhs7+onI+7iUCsGTqaXM/ewvY6y/VoPWEq/fRLl/3dA==",
+  "success": true,
+  "projectFilePath": "F:\\PHASE-4\\Day-4\\DockerMVC\\DockerMVC\\DockerMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kaviya\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512"
+  ],
+  "logs": []
+}
